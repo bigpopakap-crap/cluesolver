@@ -1,6 +1,6 @@
 package card;
 
-public class SimpleRoom extends AbstractSimpleCard {
+class SimpleRoom extends AbstractSimpleCard implements Suspect {
 	
 	public SimpleRoom(String name) {
 		super(name);

@@ -1,6 +1,8 @@
 package card;
 
-//TODO this class can be replaced by default methods in the interface
+/*
+ * TODO JAVA8: this class can be replaced by default methods in the Card interface
+ */
 abstract class BaseAbstractCard implements Card {
 	
 	@Override

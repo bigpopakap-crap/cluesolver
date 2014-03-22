@@ -1,6 +1,6 @@
 package card;
 
-public abstract class AbstractSimpleCard extends BaseAbstractCard {
+abstract class AbstractSimpleCard extends BaseAbstractCard {
 	
 	private final String name;
 	
