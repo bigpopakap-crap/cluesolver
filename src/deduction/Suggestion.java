@@ -3,17 +3,17 @@ package deduction;
 import java.util.List;
 
 import card.Card;
-import card.Room;
-import card.Suspect;
-import card.Weapon;
+import card.SimpleRoom;
+import card.SimpleSuspect;
+import card.SimpleWeapon;
 
 public interface Suggestion {
 	
 	public String getGuesser();
 	
-	public Suspect getSuspect();
-	public Weapon getWeapon();
-	public Room getRoom();
+	public SimpleSuspect getSuspect();
+	public SimpleWeapon getWeapon();
+	public SimpleRoom getRoom();
 	
 	public String getRefuter();
 	public Card getRefuteCard();

@@ -1,17 +1,7 @@
 package card;
 
+//TODO this class can be replaced by default methods in the interface
 abstract class BaseAbstractCard implements Card {
-	
-	private final String name;
-	
-	public BaseAbstractCard(String name) {
-		this.name = name;
-	}
-	
-	@Override
-	public String getName() {
-		return name;
-	}
 	
 	@Override
 	public String toString() {

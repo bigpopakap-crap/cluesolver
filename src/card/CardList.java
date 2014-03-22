@@ -5,9 +5,9 @@ import java.util.List;
 public interface CardList {
 
 	public List<Card> getAll();
-	public List<Suspect> getSuspects();
-	public List<Weapon> getWeapons();
-	public List<Room> getRooms();
+	public List<SimpleSuspect> getSuspects();
+	public List<SimpleWeapon> getWeapons();
+	public List<SimpleRoom> getRooms();
 	
 	public Card getCardByName(String cardName);
 	

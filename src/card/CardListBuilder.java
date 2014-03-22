@@ -2,9 +2,9 @@ package card;
 
 public interface CardListBuilder {
 	
-	public void withSuspects(Suspect... suspects);
-	public void withWeapons(Weapon... weapons);
-	public void withRooms(Room... rooms);
+	public void withSuspects(SimpleSuspect... suspects);
+	public void withWeapons(SimpleWeapon... weapons);
+	public void withRooms(SimpleRoom... rooms);
 	
 	public CardList build();
 

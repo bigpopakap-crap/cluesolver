@@ -5,31 +5,31 @@ import java.util.List;
 
 public interface StandardCards {
 	
-	public static final Suspect SCARLET = new Suspect("Miss Scarlet");
-	public static final Suspect MUSTARD = new Suspect("Colonel Mustard");
-	public static final Suspect WHITE = new Suspect("Mrs. White");
-	public static final Suspect GREEN = new Suspect("Mr. Green");
-	public static final Suspect PEACOCK = new Suspect("Mrs. Peacock");
-	public static final Suspect PLUM = new Suspect("Prof. Plum");
+	public static final SimpleSuspect SCARLET = new SimpleSuspect("Miss Scarlet");
+	public static final SimpleSuspect MUSTARD = new SimpleSuspect("Colonel Mustard");
+	public static final SimpleSuspect WHITE = new SimpleSuspect("Mrs. White");
+	public static final SimpleSuspect GREEN = new SimpleSuspect("Mr. Green");
+	public static final SimpleSuspect PEACOCK = new SimpleSuspect("Mrs. Peacock");
+	public static final SimpleSuspect PLUM = new SimpleSuspect("Prof. Plum");
 	
-	public static final Weapon CANDLESTICK = new Weapon("Candlestick");
-	public static final Weapon KNIFE = new Weapon("Knife");
-	public static final Weapon PIPE = new Weapon("Lead Pipe");
-	public static final Weapon REVOLVER = new Weapon("Revolver");
-	public static final Weapon ROPE = new Weapon("Rope");
-	public static final Weapon WRENCH = new Weapon("Wrench");
+	public static final SimpleWeapon CANDLESTICK = new SimpleWeapon("Candlestick");
+	public static final SimpleWeapon KNIFE = new SimpleWeapon("Knife");
+	public static final SimpleWeapon PIPE = new SimpleWeapon("Lead Pipe");
+	public static final SimpleWeapon REVOLVER = new SimpleWeapon("Revolver");
+	public static final SimpleWeapon ROPE = new SimpleWeapon("Rope");
+	public static final SimpleWeapon WRENCH = new SimpleWeapon("Wrench");
 	
-	public static final Room KITCHEN = new Room("Kitchen");
-	public static final Room BALLROOM = new Room("Ballroom");
-	public static final Room CONSERV = new Room("Conservatory");
-	public static final Room DINING = new Room("Dining Room");
-	public static final Room BILLIARD = new Room("Billiard Room");
-	public static final Room LIBRARY = new Room("Library");
-	public static final Room LOUNGE = new Room("Lounge");
-	public static final Room HALL = new Room("Hall");
-	public static final Room STUDY = new Room("Study");
+	public static final SimpleRoom KITCHEN = new SimpleRoom("Kitchen");
+	public static final SimpleRoom BALLROOM = new SimpleRoom("Ballroom");
+	public static final SimpleRoom CONSERV = new SimpleRoom("Conservatory");
+	public static final SimpleRoom DINING = new SimpleRoom("Dining Room");
+	public static final SimpleRoom BILLIARD = new SimpleRoom("Billiard Room");
+	public static final SimpleRoom LIBRARY = new SimpleRoom("Library");
+	public static final SimpleRoom LOUNGE = new SimpleRoom("Lounge");
+	public static final SimpleRoom HALL = new SimpleRoom("Hall");
+	public static final SimpleRoom STUDY = new SimpleRoom("Study");
 	
-	public static final List<Suspect> SUSPECTS = new ArrayList<Suspect>() {{
+	public static final List<SimpleSuspect> SUSPECTS = new ArrayList<SimpleSuspect>() {{
 		add(SCARLET);
 		add(MUSTARD);
 		add(WHITE);
@@ -38,7 +38,7 @@ public interface StandardCards {
 		add(PLUM);
 	}};
 	
-	public static final List<Weapon> WEAPONS = new ArrayList<Weapon>() {{
+	public static final List<SimpleWeapon> WEAPONS = new ArrayList<SimpleWeapon>() {{
 		add(CANDLESTICK);
 		add(KNIFE);
 		add(PIPE);
@@ -47,7 +47,7 @@ public interface StandardCards {
 		add(WRENCH);
 	}};
 	
-	public static final List<Room> ROOMS = new ArrayList<Room>() {{
+	public static final List<SimpleRoom> ROOMS = new ArrayList<SimpleRoom>() {{
 		add(KITCHEN);
 		add(BALLROOM);
 		add(CONSERV);
