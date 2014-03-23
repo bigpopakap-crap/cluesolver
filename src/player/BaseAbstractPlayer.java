@@ -1,6 +1,6 @@
 package player;
 
-import gameobject.BaseAbstractNamedObject;
+import misc.BaseAbstractNamedObject;
 
 abstract class BaseAbstractPlayer extends BaseAbstractNamedObject implements Player {
 	

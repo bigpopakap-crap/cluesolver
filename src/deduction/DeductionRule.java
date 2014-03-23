@@ -1,18 +1,11 @@
 package deduction;
 
-public enum DeductionRule {
-	//TODO
-	HORIZONTAL_UNIQUENESS,
-	HORIZONTAL_UNIQUENESS_INVERSE,
+import game.GameState;
+
+import java.util.List;
+
+public interface DeductionRule {
 	
-	VERTICAL_EXACTNESS,
-	VERTICAL_EXACTNESS_INVERSE,
-	
-	CASE_FILE_TYPE_UNIQUENESS,
-	CASE_FILE_TYPE_UNIQUENESS_INVERSE,
-	
-	REFUTATION_PASSED,
-	REFUTATION_SEEN,
-	REFUTATION_KNOWN,
-	REFUTATION_DEDUCED
+	public List<Conclusion> run(GameState state);
+
 }

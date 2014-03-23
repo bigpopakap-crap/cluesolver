@@ -1,6 +1,5 @@
-package gameobject;
+package misc;
 
-import misc.NamedObject;
 
 
 

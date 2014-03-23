@@ -1,6 +1,6 @@
 package card;
 
-import gameobject.BaseAbstractNamedObject;
+import misc.BaseAbstractNamedObject;
 
 /*
  * TODO JAVA8: this class can be replaced by default methods in the Card interface
