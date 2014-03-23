@@ -1,11 +1,11 @@
 package card;
 
-public interface CardListBuilder {
-	
-	public void withSuspects(SimpleSuspect... suspects);
-	public void withWeapons(SimpleWeapon... weapons);
-	public void withRooms(SimpleRoom... rooms);
-	
-	public CardList build();
+import misc.Builder;
 
+public interface CardListBuilder extends Builder<CardList> {
+	
+	public void withSuspects(Suspect... suspects);
+	public void withWeapons(Weapon... weapons);
+	public void withRooms(Room... rooms);
+	
 }

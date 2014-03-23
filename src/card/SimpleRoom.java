@@ -1,6 +1,6 @@
 package card;
 
-class SimpleRoom extends AbstractSimpleCard implements Room {
+class SimpleRoom extends BaseAbstractCard implements Room {
 	
 	public SimpleRoom(String name) {
 		super(name);
@@ -11,7 +11,7 @@ class SimpleRoom extends AbstractSimpleCard implements Room {
 	}
 	
 	@Override
-	public SimpleRoom copy() {
+	public Room copy() {
 		return new SimpleRoom(getName());
 	}
 

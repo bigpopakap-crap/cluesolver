@@ -1,10 +1,10 @@
 package card;
 
-public interface Card extends Comparable<Card> {
+import misc.Copyable;
+import misc.NamedObject;
 
-	public String getName();
+public interface Card extends NamedObject, Copyable<Card> {
+
 	public CardType getType();
-	
-	public Card copy();
 	
 }

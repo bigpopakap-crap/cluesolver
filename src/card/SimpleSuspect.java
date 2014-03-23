@@ -1,6 +1,6 @@
 package card;
 
-class SimpleSuspect extends AbstractSimpleCard implements Suspect {
+class SimpleSuspect extends BaseAbstractCard implements Suspect {
 	
 	public SimpleSuspect(String name) {
 		super(name);
@@ -12,7 +12,7 @@ class SimpleSuspect extends AbstractSimpleCard implements Suspect {
 	}
 	
 	@Override
-	public SimpleSuspect copy() {
+	public Suspect copy() {
 		return new SimpleSuspect(getName());
 	}
 	

@@ -1,8 +1,11 @@
 package card;
 
+
 import java.util.List;
 
-public interface CardList {
+import misc.Copyable;
+
+public interface CardList extends Copyable<CardList> {
 
 	public List<Card> getAll();
 	public List<SimpleSuspect> getSuspects();
@@ -13,7 +16,5 @@ public interface CardList {
 	
 	public boolean contains(Card card);
 	public boolean contains(String cardName);
-	
-	public CardList copy();
 	
 }

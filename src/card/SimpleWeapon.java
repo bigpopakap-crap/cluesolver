@@ -1,6 +1,6 @@
 package card;
 
-class SimpleWeapon extends AbstractSimpleCard implements Weapon {
+class SimpleWeapon extends BaseAbstractCard implements Weapon {
 	
 	public SimpleWeapon(String name) {
 		super(name);
@@ -11,7 +11,7 @@ class SimpleWeapon extends AbstractSimpleCard implements Weapon {
 	}
 	
 	@Override
-	public SimpleWeapon copy() {
+	public Weapon copy() {
 		return new SimpleWeapon(getName());
 	}
 

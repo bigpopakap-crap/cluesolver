@@ -1,40 +1,21 @@
 package card;
 
+import gameobject.BaseAbstractNamedObject;
+
 /*
  * TODO JAVA8: this class can be replaced by default methods in the Card interface
  */
-abstract class BaseAbstractCard implements Card {
+abstract class BaseAbstractCard extends BaseAbstractNamedObject implements Card {
 	
-	@Override
-	public String toString() {
-		return getName();
-	}
-	
-	@Override
-	public int compareTo(Card card) {
-		return getName().compareTo(card.getName());
+	public BaseAbstractCard(String name) {
+		super(name);
 	}
 	
 	@Override
 	public boolean equals(Object o) {
-		if (o == null || o instanceof Card) {
-			return false;
-		}
-		
-		Card card = (Card) o;
-		
-		if (getType() != card.getType()) {
-			return false;
-		}
-		
-		return getName() != null
-					? getName().equals(card.getName())
-					: card.getName() == null;
+		return super.equals(o)
+			&& o instanceof Card
+			&& getType() == ((Card) o).getType();
 	}
 	
-	@Override
-	public int hashCode() {
-		return toString().hashCode();
-	}
-
 }

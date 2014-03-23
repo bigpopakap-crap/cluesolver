@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import player.Player;
 import card.Card;
 import card.CardList;
 import deduction.Reason;
@@ -15,15 +16,15 @@ class ArrayChecklist implements Checklist {
 	private static final int OTHER_PLAYERS_MIN_INDEX = MY_INDEX + 1;
 	
 	private final ChecklistCell[][] checklist;
-	private final List<String> playerList;
+	private final List<Player> playerList;
 	private final CardList cardList;
 	
-	public ArrayChecklist(List<String> players, CardList cardList) {
+	public ArrayChecklist(List<Player> players, CardList cardList) {
 		if (players == null) throw new IllegalArgumentException();
 		if (cardList == null) throw new IllegalArgumentException();
 		
 		this.playerList = new ArrayList<>(players.size());
-		for (String player : players) {
+		for (Player player : players) {
 			if (player == null) throw new IllegalArgumentException();
 			this.playerList.add(player);
 		}
@@ -46,7 +47,7 @@ class ArrayChecklist implements Checklist {
 	}
 
 	@Override
-	public ChecklistValue getValue(String player, Card card) {
+	public ChecklistValue getValue(Player player, Card card) {
 		return getCell(player, card).getValue();
 	}
 
@@ -61,7 +62,7 @@ class ArrayChecklist implements Checklist {
 	}
 
 	@Override
-	public List<Reason> getReasons(String player, Card card) {
+	public List<Reason> getReasons(Player player, Card card) {
 		return getCell(player, card).getReasons();
 	}
 
@@ -76,7 +77,7 @@ class ArrayChecklist implements Checklist {
 	}
 
 	@Override
-	public void setValue(String player, Card card, ChecklistValue value, List<Reason> reasons) {
+	public void setValue(Player player, Card card, ChecklistValue value, List<Reason> reasons) {
 		getCell(player, card).set(value, reasons);
 	}
 	
@@ -88,7 +89,7 @@ class ArrayChecklist implements Checklist {
 		return get(MY_INDEX, resolveCardToIndex(card));
 	}
 
-	private ChecklistCell getCell(String player, Card card) {
+	private ChecklistCell getCell(Player player, Card card) {
 		return get(resolvePlayerToIndex(player), resolveCardToIndex(card));
 	}
 	
@@ -96,7 +97,7 @@ class ArrayChecklist implements Checklist {
 		return checklist[playerIdx][cardIdx];
 	}
 	
-	private int resolvePlayerToIndex(String player) {
+	private int resolvePlayerToIndex(Player player) {
 		if (player == null) throw new IllegalArgumentException();
 		return OTHER_PLAYERS_MIN_INDEX + Collections.binarySearch(playerList, player);
 	}

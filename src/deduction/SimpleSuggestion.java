@@ -3,6 +3,7 @@ package deduction;
 import java.util.Collections;
 import java.util.List;
 
+import player.Player;
 import card.Card;
 import card.Room;
 import card.Suspect;
@@ -11,13 +12,13 @@ import card.Weapon;
 
 class SimpleSuggestion implements Suggestion {
 	
-	private String guesser;
+	private Player guesser;
 	
 	private Suspect suspect;
 	private Weapon weapon;
 	private Room room;
 	
-	private String refuter;
+	private Player refuter;
 	private Card refuteCard;
 	private List<Reason> refuteCardReasons;
 	
@@ -25,7 +26,7 @@ class SimpleSuggestion implements Suggestion {
 	private boolean isFullyDeduced;
 	
 	@Override
-	public String getGuesser() {
+	public Player getGuesser() {
 		return guesser;
 	}
 	
@@ -45,7 +46,7 @@ class SimpleSuggestion implements Suggestion {
 	}
 	
 	@Override
-	public String getRefuter() {
+	public Player getRefuter() {
 		return refuter;
 	}
 	
@@ -70,7 +71,7 @@ class SimpleSuggestion implements Suggestion {
 	}
 	
 	@Override
-	public void setRefuter(String player) {
+	public void setRefuter(Player player) {
 		if (isRefuted()) {
 			throw new IllegalStateException("this suggestion already had a refuter");
 		}
