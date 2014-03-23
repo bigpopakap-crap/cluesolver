@@ -11,19 +11,20 @@ import deduction.Reason;
 
 class ArrayChecklist implements Checklist {
 	
-	private static final int CASE_FILE_INDEX = 0;
-	private static final int MY_INDEX = CASE_FILE_INDEX + 1;
-	private static final int OTHER_PLAYERS_MIN_INDEX = MY_INDEX + 1;
-	
 	private final ChecklistCell[][] checklist;
 	private final List<Player> playerList;
 	private final CardList cardList;
 	
+	/**
+	 * @param players should *not* include {@link Player#CASE_FILE} or {@link Player#ME}
+	 */
 	public ArrayChecklist(List<Player> players, CardList cardList) {
-		if (players == null) throw new IllegalArgumentException();
+		if (players == null) players = new ArrayList<Player>();
 		if (cardList == null) throw new IllegalArgumentException();
 		
 		this.playerList = new ArrayList<>(players.size());
+		this.playerList.add(Player.CASE_FILE);
+		this.playerList.add(Player.ME);
 		for (Player player : players) {
 			if (player == null) throw new IllegalArgumentException();
 			this.playerList.add(player);
@@ -32,33 +33,13 @@ class ArrayChecklist implements Checklist {
 		this.cardList = cardList.copy();
 		
 		this.checklist = new ChecklistCell
-							[OTHER_PLAYERS_MIN_INDEX + this.playerList.size()]
+							[this.playerList.size()]
 							[this.cardList.getAll().size()];
 	}
 	
 	@Override
-	public ChecklistValue getCaseFileValue(Card card) {
-		return getCaseFileCell(card).getValue();
-	}
-
-	@Override
-	public ChecklistValue getMyValue(Card card) {
-		return getMyCell(card).getValue();
-	}
-
-	@Override
 	public ChecklistValue getValue(Player player, Card card) {
 		return getCell(player, card).getValue();
-	}
-
-	@Override
-	public List<Reason> getCaseFileReasons(Card card) {
-		return getCaseFileCell(card).getReasons();
-	}
-
-	@Override
-	public List<Reason> getMyReasons(Card card) {
-		return getMyCell(card).getReasons();
 	}
 
 	@Override
@@ -67,44 +48,14 @@ class ArrayChecklist implements Checklist {
 	}
 
 	@Override
-	public void setCaseFileValue(Card card, ChecklistValue value, List<Reason> reasons) {
-		getCaseFileCell(card).set(value, reasons);
-	}
-
-	@Override
-	public void setMyValue(Card card, ChecklistValue value, List<Reason> reasons) {
-		getMyCell(card).set(value, reasons);
-	}
-
-	@Override
 	public void setValue(Player player, Card card, ChecklistValue value, List<Reason> reasons) {
 		getCell(player, card).set(value, reasons);
 	}
 	
-	private ChecklistCell getCaseFileCell(Card card) {
-		return get(CASE_FILE_INDEX, resolveCardToIndex(card));
-	}
-
-	private ChecklistCell getMyCell(Card card) {
-		return get(MY_INDEX, resolveCardToIndex(card));
-	}
-
 	private ChecklistCell getCell(Player player, Card card) {
-		return get(resolvePlayerToIndex(player), resolveCardToIndex(card));
-	}
-	
-	private ChecklistCell get(int playerIdx, int cardIdx) {
-		return checklist[playerIdx][cardIdx];
-	}
-	
-	private int resolvePlayerToIndex(Player player) {
-		if (player == null) throw new IllegalArgumentException();
-		return OTHER_PLAYERS_MIN_INDEX + Collections.binarySearch(playerList, player);
-	}
-	
-	private int resolveCardToIndex(Card card) {
-		if (card == null) throw new IllegalArgumentException();
-		return Collections.binarySearch(cardList.getAll(), card);
+		return checklist
+				[Collections.binarySearch(playerList, player)]
+				[Collections.binarySearch(cardList.getAll(), card)];
 	}
 	
 	@Override
