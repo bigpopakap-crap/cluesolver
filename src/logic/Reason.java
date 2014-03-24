@@ -1,8 +1,8 @@
 package logic;
 
 public enum Reason {
-	HORIZONTAL_UNIQUENESS("Somebody else has this card"),
-	HORIZONTAL_UNIQUENESS_INVERSE("Nobody else has this card")
+	SOMEBODY_ELSE_HAS_CARD("Somebody else has this card"),
+	NOBODY_ELSE_HAS_CARD("Nobody else has this card")
 	;
 	
 	private String message;

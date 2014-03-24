@@ -40,7 +40,7 @@ public class HorizontalUniquenessDeduction implements Deduction {
 				
 				conclusions.add(new PlayerDefinitelyDoesNotHaveCardConclusion(
 					player2, card,
-					Reason.HORIZONTAL_UNIQUENESS
+					Reason.SOMEBODY_ELSE_HAS_CARD
 				));
 			}
 		}
