@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import logic.Reason;
+
 import player.Player;
 import card.Card;
 import card.CardList;
-import deduction.Reason;
 
 class ArrayChecklist implements Checklist {
 	

@@ -1,6 +1,8 @@
-package deduction;
+package logic;
 
 import java.util.List;
+
+import logic.conclusion.Conclusion;
 
 import player.Player;
 import card.Card;

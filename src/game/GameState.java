@@ -2,10 +2,11 @@ package game;
 
 import java.util.List;
 
+import logic.Suggestion;
+
 import player.Player;
 import card.Card;
 import card.CardList;
-import deduction.Suggestion;
 
 public interface GameState {
 	

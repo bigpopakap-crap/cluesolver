@@ -3,10 +3,10 @@ package checklist;
 
 import java.util.List;
 
+import logic.Reason;
 import misc.Copyable;
 import player.Player;
 import card.Card;
-import deduction.Reason;
 
 public interface Checklist extends Copyable<Checklist> {
 	

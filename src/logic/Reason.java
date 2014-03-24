@@ -1,4 +1,4 @@
-package deduction;
+package logic;
 
 public enum Reason {
 	//TODO

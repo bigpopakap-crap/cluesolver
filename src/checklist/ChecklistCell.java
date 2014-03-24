@@ -3,7 +3,8 @@ package checklist;
 import java.util.LinkedList;
 import java.util.List;
 
-import deduction.Reason;
+import logic.Reason;
+
 
 class ChecklistCell {
 	
