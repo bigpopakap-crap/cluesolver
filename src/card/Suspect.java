@@ -1,6 +1,6 @@
 package card;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 //TODO JAVA8: add default getType() method
@@ -13,14 +13,8 @@ public interface Suspect extends Card {
 	public static final Suspect PEACOCK = new SimpleSuspect("Mrs. Peacock");
 	public static final Suspect PLUM = new SimpleSuspect("Prof. Plum");
 	
-	@SuppressWarnings("serial")
-	public static final List<Suspect> SUSPECTS = new ArrayList<Suspect>() {{
-		add(SCARLET);
-		add(MUSTARD);
-		add(WHITE);
-		add(GREEN);
-		add(PEACOCK);
-		add(PLUM);
-	}};
+	public static final List<Suspect> ALL_STANDARD = Arrays.asList(
+		SCARLET, MUSTARD, WHITE, GREEN, PEACOCK, PLUM
+	);
 
 }

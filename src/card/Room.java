@@ -1,6 +1,6 @@
 package card;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 //TODO JAVA8: add default getType() method
@@ -16,17 +16,8 @@ public interface Room extends Card {
 	public static final Room HALL = new SimpleRoom("Hall");
 	public static final Room STUDY = new SimpleRoom("Study");
 	
-	@SuppressWarnings("serial")
-	public static final List<Room> ROOMS = new ArrayList<Room>() {{
-		add(KITCHEN);
-		add(BALLROOM);
-		add(CONSERV);
-		add(DINING);
-		add(BILLIARD);
-		add(LIBRARY);
-		add(LOUNGE);
-		add(HALL);
-		add(STUDY);
-	}};
+	public static final List<Room> ALL_STANDARD = Arrays.asList(
+		KITCHEN, BALLROOM, CONSERV, DINING, BILLIARD, LIBRARY, LOUNGE, HALL, STUDY
+	);
 	
 }
