@@ -7,7 +7,7 @@ import misc.BaseAbstractNamedObject;
  */
 abstract class BaseAbstractCard extends BaseAbstractNamedObject implements Card {
 	
-	public BaseAbstractCard(String name) {
+	protected BaseAbstractCard(String name) {
 		super(name);
 	}
 	

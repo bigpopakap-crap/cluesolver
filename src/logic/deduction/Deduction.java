@@ -5,10 +5,10 @@ import game.GameState;
 
 import java.util.List;
 
-import logic.ConclusionAndReasons;
+import logic.conclusion.Conclusion;
 
 public interface Deduction {
 	
-	public List<ConclusionAndReasons> run(GameState state, GameInfo info);
+	public List<Conclusion> run(GameState state, GameInfo info);
 
 }

@@ -8,7 +8,7 @@ public abstract class BaseAbstractNamedObject implements NamedObject {
 	
 	private String name;
 	
-	public BaseAbstractNamedObject(String name) {
+	protected BaseAbstractNamedObject(String name) {
 		if (name == null) throw new IllegalArgumentException();
 		this.name = name;
 	}
