@@ -8,9 +8,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import logic.conclusion.Conclusion;
+import logic.deduction.CaseFileTypeUniquenessDeduction;
+import logic.deduction.CaseFileTypeUniquenessInverseDeduction;
 import logic.deduction.Deduction;
 import logic.deduction.HorizontalUniquenessDeduction;
 import logic.deduction.HorizontalUniquenessInverseDeduction;
+import logic.deduction.RefutationDeducedDeduction;
+import logic.deduction.RefutationKnownDeduction;
+import logic.deduction.RefutationSeenDeduction;
+import logic.deduction.VerticalExactnessDeduction;
+import logic.deduction.VerticalExactnessInverseDeduction;
 
 public class DeductionRunner implements Deduction {
 	
@@ -18,7 +25,14 @@ public class DeductionRunner implements Deduction {
 	
 	private static final List<Deduction> DEDUCTIONS = Arrays.asList(
 		new HorizontalUniquenessDeduction(),
-		new HorizontalUniquenessInverseDeduction()
+		new HorizontalUniquenessInverseDeduction(),
+		new VerticalExactnessDeduction(),
+		new VerticalExactnessInverseDeduction(),
+		new CaseFileTypeUniquenessDeduction(),
+		new CaseFileTypeUniquenessInverseDeduction(),
+		new RefutationDeducedDeduction(),
+		new RefutationKnownDeduction(),
+		new RefutationSeenDeduction()
 	);
 
 	@Override
