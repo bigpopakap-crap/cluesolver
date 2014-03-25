@@ -1,7 +1,6 @@
 package main;
 
 import ui.CommandLineUI;
-import ui.UIState;
 
 public class Main {
 	
@@ -10,7 +9,7 @@ public class Main {
 		
 		ui.listCommands();
 		ui.start();
-		while (ui.getState() != UIState.ENDED) {
+		while (ui.isRunning()) {
 			ui.acceptCommand();
 		}
 		

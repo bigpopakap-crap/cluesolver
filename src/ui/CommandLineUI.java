@@ -10,6 +10,7 @@ public class CommandLineUI {
 	private final InputStream in;
 	private final PrintStream out;
 	private Game game;
+	private boolean isRunning;
 	
 	public CommandLineUI() {
 		this(System.in, System.out);
@@ -18,17 +19,17 @@ public class CommandLineUI {
 	public CommandLineUI(InputStream in, PrintStream out) {
 		this.in = in;
 		this.out = out;
-		this.game = createGame();
+		this.game = null;
+		this.isRunning = false;
 	}
 	
-	public boolean start() {
-		// TODO Auto-generated method stub
-		return false;
+	public void start() {
+		game = createGame();
+		isRunning = true;
 	}
 
-	public UIState getState() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean isRunning() {
+		return isRunning;
 	}
 
 	private Game createGame() {
