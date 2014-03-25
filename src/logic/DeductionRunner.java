@@ -1,7 +1,6 @@
 package logic;
 
-import game.GameInfo;
-import game.GameState;
+import game.Game;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,14 +35,14 @@ public class DeductionRunner implements Deduction {
 	);
 
 	@Override
-	public List<Conclusion> run(GameState state, GameInfo info) {
+	public List<Conclusion> run(Game game) {
 		List<Conclusion> conclusions = new ArrayList<>();
 		
 		boolean conclusionsAdded;
 		do {
 			conclusionsAdded = false;
 			for (Deduction deduction : DEDUCTIONS) {
-				List<Conclusion> deductionConclusions = deduction.run(state, info);
+				List<Conclusion> deductionConclusions = deduction.run(game);
 				
 				if (!deductionConclusions.isEmpty()) {
 					conclusionsAdded = true;

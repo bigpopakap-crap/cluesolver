@@ -1,7 +1,6 @@
 package logic.deduction;
 
-import game.GameInfo;
-import game.GameState;
+import game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,22 +19,22 @@ import checklist.ChecklistValue;
 public class HorizontalUniquenessDeduction implements Deduction {
 
 	@Override
-	public List<Conclusion> run(GameState state, GameInfo info) {
+	public List<Conclusion> run(Game game) {
 		List<Conclusion> conclusions = new ArrayList<>();
 		
-		for (Player player : state.getPlayers()) {
-			for (Card card : state.getCardList().getAll()) {
-				run(state, info, conclusions, player, card);
+		for (Player player : game.getState().getPlayers()) {
+			for (Card card : game.getState().getCardList().getAll()) {
+				run(game, conclusions, player, card);
 			}
 		}
 		
 		return conclusions;
 	}
 	
-	private void run(GameState state, GameInfo info, List<Conclusion> conclusions, Player player, Card card) {
-		if (info.getChecklist().getValue(player, card) == ChecklistValue.DEFINITELY_DOES_HAVE) {
+	private void run(Game game, List<Conclusion> conclusions, Player player, Card card) {
+		if (game.getInfo().getChecklist().getValue(player, card) == ChecklistValue.DEFINITELY_DOES_HAVE) {
 			//player has card, mark it as not had by any other player
-			for (Player player2 : state.getPlayers()) {
+			for (Player player2 : game.getState().getPlayers()) {
 				if (player.equals(player2)) continue;
 				
 				conclusions.add(new PlayerDefinitelyDoesNotHaveCardConclusion(

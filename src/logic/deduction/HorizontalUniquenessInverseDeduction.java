@@ -1,7 +1,6 @@
 package logic.deduction;
 
-import game.GameInfo;
-import game.GameState;
+import game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,21 +18,21 @@ import card.Card;
 public class HorizontalUniquenessInverseDeduction implements Deduction {
 
 	@Override
-	public List<Conclusion> run(GameState state, GameInfo info) {
+	public List<Conclusion> run(Game game) {
 		List<Conclusion> conclusions = new ArrayList<>();
 		
-		for (Card card : state.getCardList().getAll()) {
-			run(state, info, conclusions, card);
+		for (Card card : game.getState().getCardList().getAll()) {
+			run(game, conclusions, card);
 		}
 		
 		return conclusions;
 	}
 	
-	private void run(GameState state, GameInfo info, List<Conclusion> conclusions, Card card) {
+	private void run(Game game, List<Conclusion> conclusions, Card card) {
 		Player unknownPlayer = null;
 		
-		for (Player player : state.getPlayers()) {
-			switch (info.getChecklist().getValue(player, card)) {
+		for (Player player : game.getState().getPlayers()) {
+			switch (game.getInfo().getChecklist().getValue(player, card)) {
 			case DEFINITELY_DOES_HAVE:
 				//somebody has this card, we can't get any info about it
 				return;
