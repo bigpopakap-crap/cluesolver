@@ -1,6 +1,6 @@
 package card;
 
-class SimpleRoom extends BaseAbstractCard implements Room {
+public class SimpleRoom extends BaseAbstractCard implements Room {
 	
 	public SimpleRoom(String name) {
 		super(name);

@@ -1,6 +1,6 @@
 package card;
 
-class SimpleSuspect extends BaseAbstractCard implements Suspect {
+public class SimpleSuspect extends BaseAbstractCard implements Suspect {
 	
 	public SimpleSuspect(String name) {
 		super(name);

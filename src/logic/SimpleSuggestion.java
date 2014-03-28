@@ -1,10 +1,10 @@
 package logic;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import logic.conclusion.Conclusion;
-
 import player.Player;
 import card.Card;
 import card.Room;
@@ -12,7 +12,7 @@ import card.Suspect;
 import card.Weapon;
 
 
-class SimpleSuggestion implements Suggestion {
+public class SimpleSuggestion implements Suggestion {
 	
 	private Player guesser;
 	
@@ -26,6 +26,32 @@ class SimpleSuggestion implements Suggestion {
 	
 	private List<Conclusion> conclusions;
 	private boolean isFullyDeduced;
+	
+	public SimpleSuggestion(Player guesser, Suspect suspect, Weapon weapon, Room room) {
+		this(guesser, suspect, weapon, room, null, null);
+	}
+	
+	public SimpleSuggestion(Player guesser, Suspect suspect, Weapon weapon, Room room, Player refuter) {
+		this(guesser, suspect, weapon, room, refuter, null);
+	}
+	
+	public SimpleSuggestion(Player guesser, Suspect suspect, Weapon weapon, Room room,
+							Player refuter, Card refuteCard) {
+		this.guesser = guesser;
+		this.suspect = suspect;
+		this.weapon = weapon;
+		this.room = room;
+		this.refuter = refuter;
+		this.refuteCard = refuteCard;
+		
+		this.refuteCardReasons = new ArrayList<>();
+		if (isRefuteCardKnown()) {
+			this.refuteCardReasons.add(Reason.USER_ENTERED);
+		}
+		
+		this.conclusions = new ArrayList<>();
+		this.isFullyDeduced = false;
+	}
 	
 	@Override
 	public Player getGuesser() {

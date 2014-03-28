@@ -1,6 +1,6 @@
 package card;
 
-class SimpleWeapon extends BaseAbstractCard implements Weapon {
+public class SimpleWeapon extends BaseAbstractCard implements Weapon {
 	
 	public SimpleWeapon(String name) {
 		super(name);

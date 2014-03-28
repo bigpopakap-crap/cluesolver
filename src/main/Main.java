@@ -1,14 +1,14 @@
 package main;
 
-import ui.CommandLineUI;
+import ui.commandline.CommandLineUI;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		CommandLineUI ui = new CommandLineUI();
 		
-		ui.listCommands();
 		ui.start();
+		ui.listCommands();
 		while (ui.isRunning()) {
 			ui.acceptCommand();
 		}
