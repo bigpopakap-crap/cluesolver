@@ -4,7 +4,7 @@ import ui.commandline.CommandLineUI;
 
 public class Main {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		CommandLineUI ui = new CommandLineUI();
 		
 		ui.start();

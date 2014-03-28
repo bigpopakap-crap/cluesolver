@@ -2,9 +2,11 @@ package ui.commandline;
 
 import game.Game;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
 
 import logic.SimpleSuggestion;
 import player.Player;
@@ -56,9 +58,11 @@ public class CommandLineUI {
 		return null;
 	}
 	
-	public void acceptCommand() {
-		Scanner scan = new Scanner(in);
-		String line = scan.nextLine().toLowerCase();
+	public void acceptCommand() throws IOException {
+		out.print(">> ");
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+		String line = reader.readLine().toLowerCase().toLowerCase();
 		
 		if (line.startsWith("help")) {
 			listCommands();
@@ -79,7 +83,7 @@ public class CommandLineUI {
 			out.println("unrecognized command. type 'help' to list commands");
 		}
 		
-		scan.close();
+		out.println();
 	}
 	
 	public void listCommands() {
